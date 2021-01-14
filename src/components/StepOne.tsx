@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { IInitialState } from '../reducer/types';
+import { setConstructionUnit } from '../actions';
 
 import {
   Wrapper,
@@ -14,23 +15,38 @@ import {
   Button,
 } from '../styles/customElements';
 
+const constructionUnitsOptions = ['Жилой дом', 'Гараж'];
+
 const StepOne = () => {
   const { constructionUnit } = useSelector((state: IInitialState) => state);
+  const dispatch = useDispatch();
   console.log(constructionUnit);
+
+  const handleConstructionUnitSelect = (
+    e: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    e.preventDefault();
+    const { innerText } = e.currentTarget;
+    dispatch(setConstructionUnit(innerText));
+  };
+
+  const renderConstructionUnitsOptions = () => {
+    return constructionUnitsOptions.map((constructionUnit, idx) => (
+      <li key={idx}>
+        <OptionLink onClick={handleConstructionUnitSelect}>
+          {constructionUnit}
+        </OptionLink>
+      </li>
+    ));
+  };
+
   return (
     <Wrapper>
       <MainTitle>Калькулятор цены конструкций</MainTitle>
       <StepNo>Шаг 1</StepNo>
       <QuestionBox>
         <QuestionTitle>Что будем строить?</QuestionTitle>
-        <ul>
-          <li>
-            <OptionLink href=''>Жилой дом</OptionLink>
-          </li>
-          <li>
-            <OptionLink href=''>Гараж</OptionLink>
-          </li>
-        </ul>
+        <ul>{renderConstructionUnitsOptions()}</ul>
       </QuestionBox>
       <div>
         <Button>Отмена</Button>
