@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { customColors } from './customColors';
 
-const { black, grey, blue, green } = customColors;
+const { black, grey, blue, green, white } = customColors;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -44,12 +44,12 @@ export const OptionLink = styled.a`
 
 export const Button = styled.button`
   margin: 0 5px;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid ${black};
+  background-color: ${white};
   outline: none;
   border-radius: 5px;
   cursor: pointer;
   &:hover {
-    background-color: grey;
+    background-color: ${grey};
   }
 `;

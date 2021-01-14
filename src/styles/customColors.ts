@@ -3,4 +3,5 @@ export const customColors = {
   black: 'black',
   blue: 'blue',
   green: 'green',
+  white: 'white',
 };
