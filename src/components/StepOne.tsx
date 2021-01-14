@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useSelector } from 'react-redux';
+
+import { IInitialState } from '../reducer/types';
 
 import {
   Wrapper,
@@ -12,6 +15,8 @@ import {
 } from '../styles/customElements';
 
 const StepOne = () => {
+  const { constructionUnit } = useSelector((state: IInitialState) => state);
+  console.log(constructionUnit);
   return (
     <Wrapper>
       <MainTitle>Калькулятор цены конструкций</MainTitle>

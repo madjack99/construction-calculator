@@ -1,8 +1,10 @@
 export enum ActionTypes {
-  setConstructionType = 'SET_CONSTRUCTION_TYPE',
+  setConstructionUnit = 'SET_CONSTRUCTION_UNIT',
 }
 
 export interface setConstructionUnitActionType {
-  type: ActionTypes.setConstructionType;
+  type: ActionTypes.setConstructionUnit;
   payload: string;
 }
+
+export type ActionCreatorTypes = setConstructionUnitActionType;
