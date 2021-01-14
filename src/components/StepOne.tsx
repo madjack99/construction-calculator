@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { IInitialState } from '../reducer/types';
-import { setConstructionUnit } from '../actions';
+import { setConstructionUnit, changeStep } from '../actions';
 
 import {
   Wrapper,
@@ -28,6 +28,9 @@ const StepOne = () => {
     e.preventDefault();
     const { innerText } = e.currentTarget;
     dispatch(setConstructionUnit(innerText));
+    innerText === 'Жилой дом'
+      ? dispatch(changeStep('step-two'))
+      : dispatch(changeStep('step-three'));
   };
 
   const renderConstructionUnitsOptions = () => {

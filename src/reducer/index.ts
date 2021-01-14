@@ -2,6 +2,7 @@ import { ActionTypes, ActionCreatorTypes } from '../actions/types';
 import { IInitialState } from './types';
 
 const initialState: IInitialState = {
+  stepNo: 'step-one',
   constructionUnit: '',
 };
 
@@ -14,6 +15,11 @@ export const rootReducer = (
       return {
         ...state,
         constructionUnit: action.payload,
+      };
+    case ActionTypes.changeStep:
+      return {
+        ...state,
+        stepNo: action.payload,
       };
     default:
       return state;
