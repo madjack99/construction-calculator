@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { IInitialState } from '../reducer/types';
 import { setConstructionUnit, changeStep } from '../actions';
@@ -20,6 +21,7 @@ const constructionUnitsOptions = ['Жилой дом', 'Гараж'];
 const StepOne = () => {
   const { constructionUnit } = useSelector((state: IInitialState) => state);
   const dispatch = useDispatch();
+  const history = useHistory();
   console.log(constructionUnit);
 
   const handleConstructionUnitSelect = (
@@ -28,9 +30,14 @@ const StepOne = () => {
     e.preventDefault();
     const { innerText } = e.currentTarget;
     dispatch(setConstructionUnit(innerText));
-    innerText === 'Жилой дом'
-      ? dispatch(changeStep('step-two'))
-      : dispatch(changeStep('step-three'));
+
+    if (innerText === 'Жилой дом') {
+      dispatch(changeStep('step-two'));
+      history.push('step-two');
+    } else {
+      dispatch(changeStep('step-three'));
+      history.push('step-three');
+    }
   };
 
   const renderConstructionUnitsOptions = () => {
