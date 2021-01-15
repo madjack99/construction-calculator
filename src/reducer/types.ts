@@ -3,4 +3,6 @@ export interface IInitialState {
   constructionUnit: string;
   storeys: number;
   material: string;
+  sizeX: number;
+  sizeY: number;
 }

@@ -6,6 +6,8 @@ const initialState: IInitialState = {
   constructionUnit: '',
   storeys: 1,
   material: '',
+  sizeX: 1,
+  sizeY: 1,
 };
 
 export const rootReducer = (
@@ -28,6 +30,16 @@ export const rootReducer = (
       return {
         ...state,
         material: action.payload,
+      };
+    case ActionTypes.setWallsX:
+      return {
+        ...state,
+        sizeX: action.payload,
+      };
+    case ActionTypes.setWallsY:
+      return {
+        ...state,
+        sizeY: action.payload,
       };
     case ActionTypes.changeStep:
       return {

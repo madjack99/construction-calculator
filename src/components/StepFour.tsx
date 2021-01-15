@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
+import { useDispatch } from 'react-redux';
 
 import ErrorMessage from './ErrorMessage';
 import CancelButton from './CancelButton';
 import useNumInput from './customHooks/useNumInput';
+import { setWallsX, setWallsY } from '../actions';
 
 import {
   Wrapper,
@@ -22,11 +23,16 @@ const StepFour = () => {
   const [xValue, xValueAttributes] = useNumInput(1);
   const [yValue, yValueAttributes] = useNumInput(1);
 
+  const dispatch = useDispatch();
+
   const handleCalculate = () => {
     if (xValue < 1 || yValue < 1) {
       setError(true);
       return;
     }
+
+    dispatch(setWallsX(xValue));
+    dispatch(setWallsY(yValue));
   };
 
   return (

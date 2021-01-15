@@ -4,6 +4,8 @@ export enum ActionTypes {
   resetState = 'RESET_STATE',
   setStoreys = 'SET_STOREYS',
   setMaterial = 'SET_MATERIAL',
+  setWallsX = 'SET_WALLS_X',
+  setWallsY = 'SET_WALLS_Y',
 }
 
 export type stepType =
@@ -28,6 +30,16 @@ export interface setMaterialActionType {
   payload: string;
 }
 
+export interface setWallsXActionType {
+  type: ActionTypes.setWallsX;
+  payload: number;
+}
+
+export interface setWallsYActionType {
+  type: ActionTypes.setWallsY;
+  payload: number;
+}
+
 export interface changeStepActionType {
   type: ActionTypes.changeStep;
   payload: stepType;
@@ -42,4 +54,6 @@ export type ActionCreatorTypes =
   | changeStepActionType
   | resetStateActionType
   | setStoreysActionType
-  | setMaterialActionType;
+  | setMaterialActionType
+  | setWallsXActionType
+  | setWallsYActionType;

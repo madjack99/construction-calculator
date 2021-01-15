@@ -5,6 +5,8 @@ import {
   setStoreysActionType,
   resetStateActionType,
   setMaterialActionType,
+  setWallsXActionType,
+  setWallsYActionType,
   stepType,
 } from './types';
 
@@ -23,6 +25,16 @@ export const setStoreys = (storeys: number): setStoreysActionType => ({
 export const setMaterial = (material: string): setMaterialActionType => ({
   type: ActionTypes.setMaterial,
   payload: material,
+});
+
+export const setWallsX = (sizeX: number): setWallsXActionType => ({
+  type: ActionTypes.setWallsX,
+  payload: sizeX,
+});
+
+export const setWallsY = (sizeY: number): setWallsYActionType => ({
+  type: ActionTypes.setWallsY,
+  payload: sizeY,
 });
 
 export const resetState = (): resetStateActionType => ({
