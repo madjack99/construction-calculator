@@ -6,6 +6,8 @@ import { setConstructionUnit, changeStep } from '../actions';
 import CancelButton from './CancelButton';
 import ErrorMessage from './ErrorMessage';
 
+import { constructionUnitsOptions } from '../constructionInfo';
+
 import {
   Wrapper,
   MainTitle,
@@ -15,8 +17,6 @@ import {
   OptionLink,
   Button,
 } from '../styles/customElements';
-
-const constructionUnitsOptions = ['Жилой дом', 'Гараж'];
 
 const StepOne = () => {
   const [error, setError] = useState(false);

@@ -4,13 +4,9 @@ import {
   changeStepActionType,
   setStoreysActionType,
   resetStateActionType,
+  setMaterialActionType,
   stepType,
 } from './types';
-
-export const changeStep = (stepName: stepType): changeStepActionType => ({
-  type: ActionTypes.changeStep,
-  payload: stepName,
-});
 
 export const setConstructionUnit = (
   constructionUnit: string
@@ -24,6 +20,16 @@ export const setStoreys = (storeys: number): setStoreysActionType => ({
   payload: storeys,
 });
 
+export const setMaterial = (material: string): setMaterialActionType => ({
+  type: ActionTypes.setMaterial,
+  payload: material,
+});
+
 export const resetState = (): resetStateActionType => ({
   type: ActionTypes.resetState,
+});
+
+export const changeStep = (stepName: stepType): changeStepActionType => ({
+  type: ActionTypes.changeStep,
+  payload: stepName,
 });

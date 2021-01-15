@@ -5,6 +5,7 @@ const initialState: IInitialState = {
   stepNo: 'step-one',
   constructionUnit: '',
   storeys: 1,
+  material: '',
 };
 
 export const rootReducer = (
@@ -23,6 +24,11 @@ export const rootReducer = (
         storeys: action.payload,
       };
     }
+    case ActionTypes.setMaterial:
+      return {
+        ...state,
+        material: action.payload,
+      };
     case ActionTypes.changeStep:
       return {
         ...state,

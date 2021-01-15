@@ -1,7 +1,13 @@
 import React from 'react';
 
+import StepThree from '../components/StepThree';
+
 const StepThreePage = () => {
-  return <div>step three</div>;
+  return (
+    <div>
+      <StepThree />
+    </div>
+  );
 };
 
 export default StepThreePage;

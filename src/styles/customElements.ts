@@ -39,7 +39,12 @@ export const QuestionTitle = styled.h2`
 `;
 
 export const OptionLink = styled.a`
+  padding: 0 5px;
   color: ${green};
+  cursor: pointer;
+  &:hover {
+    color: ${blue};
+  }
 `;
 
 export const Button = styled.button`
@@ -55,6 +60,7 @@ export const Button = styled.button`
 `;
 
 export const ErrorDiv = styled.div`
+  margin: 0 0 5px;
   color: ${red};
 `;
 
