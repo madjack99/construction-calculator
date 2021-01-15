@@ -11,7 +11,6 @@ const useNumInput = (initValue: number): ReturnType => {
   const bindObject = {
     value,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(+e.target.value);
       setValue(+e.target.value);
     },
   };

@@ -31,8 +31,6 @@ const StepResult = () => {
     history.push('step-one');
   };
 
-  console.log('api message', typeof apiResultMessage);
-
   return (
     <Wrapper>
       <MainTitle>Калькулятор цены конструкций</MainTitle>
