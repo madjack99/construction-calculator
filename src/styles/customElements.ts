@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { customColors } from './customColors';
 
-const { black, grey, blue, green, white } = customColors;
+const { black, grey, blue, green, white, red } = customColors;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -52,4 +52,8 @@ export const Button = styled.button`
   &:hover {
     background-color: ${grey};
   }
+`;
+
+export const ErrorDiv = styled.div`
+  color: ${red};
 `;

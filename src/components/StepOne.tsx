@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { IInitialState } from '../reducer/types';
 import { setConstructionUnit, changeStep } from '../actions';
 import CancelButton from './CancelButton';
+import ErrorMessage from './ErrorMessage';
 
 import {
   Wrapper,
@@ -20,10 +21,10 @@ import {
 const constructionUnitsOptions = ['Жилой дом', 'Гараж'];
 
 const StepOne = () => {
-  const { constructionUnit } = useSelector((state: IInitialState) => state);
+  const [error, setError] = useState(false);
+
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(constructionUnit);
 
   const handleConstructionUnitSelect = (
     e: React.MouseEvent<HTMLAnchorElement>
@@ -59,9 +60,10 @@ const StepOne = () => {
         <QuestionTitle>Что будем строить?</QuestionTitle>
         <ul>{renderConstructionUnitsOptions()}</ul>
       </QuestionBox>
+      {error && <ErrorMessage>Выберите тип постройки</ErrorMessage>}
       <div>
         <CancelButton />
-        <Button>Далее</Button>
+        <Button onClick={() => setError(true)}>Далее</Button>
       </div>
     </Wrapper>
   );
