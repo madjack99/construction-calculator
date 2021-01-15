@@ -1,3 +1,9 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { IInitialState } from '../reducer/types';
+
+import { formUrlString } from '../utils';
+import { fetchData } from '../api';
+
 import {
   ActionTypes,
   setConstructionUnitActionType,
@@ -7,7 +13,9 @@ import {
   setMaterialActionType,
   setWallsXActionType,
   setWallsYActionType,
+  getApiResultActionType,
   stepType,
+  TGetState,
 } from './types';
 
 export const setConstructionUnit = (
@@ -36,6 +44,22 @@ export const setWallsY = (sizeY: number): setWallsYActionType => ({
   type: ActionTypes.setWallsY,
   payload: sizeY,
 });
+
+export const makeApiCall = () => (
+  dispatch: ThunkDispatch<IInitialState, null, getApiResultActionType>,
+  getState: TGetState
+) => {
+  const targetUrl = formUrlString(getState());
+  fetchData(targetUrl).then(({ result, message }) => {
+    dispatch({
+      type: ActionTypes.getApiResult,
+      payload: {
+        apiResultStatus: result,
+        apiResultMessage: message,
+      },
+    });
+  });
+};
 
 export const resetState = (): resetStateActionType => ({
   type: ActionTypes.resetState,

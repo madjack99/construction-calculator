@@ -5,4 +5,8 @@ export interface IInitialState {
   material: string;
   sizeX: number;
   sizeY: number;
+  apiCallResult: {
+    apiResultStatus: string;
+    apiResultMessage: string;
+  };
 }

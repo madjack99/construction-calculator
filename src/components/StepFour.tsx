@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import ErrorMessage from './ErrorMessage';
 import CancelButton from './CancelButton';
 import useNumInput from './customHooks/useNumInput';
-import { setWallsX, setWallsY } from '../actions';
+import { setWallsX, setWallsY, makeApiCall } from '../actions';
 
 import {
   Wrapper,
@@ -33,6 +33,8 @@ const StepFour = () => {
 
     dispatch(setWallsX(xValue));
     dispatch(setWallsY(yValue));
+
+    dispatch(makeApiCall());
   };
 
   return (

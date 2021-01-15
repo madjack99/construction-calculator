@@ -8,6 +8,10 @@ const initialState: IInitialState = {
   material: '',
   sizeX: 1,
   sizeY: 1,
+  apiCallResult: {
+    apiResultStatus: '',
+    apiResultMessage: '',
+  },
 };
 
 export const rootReducer = (
@@ -40,6 +44,11 @@ export const rootReducer = (
       return {
         ...state,
         sizeY: action.payload,
+      };
+    case ActionTypes.getApiResult:
+      return {
+        ...state,
+        apiCallResult: action.payload,
       };
     case ActionTypes.changeStep:
       return {

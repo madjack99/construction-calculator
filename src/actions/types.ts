@@ -1,3 +1,5 @@
+import { IInitialState } from '../reducer/types';
+
 export enum ActionTypes {
   setConstructionUnit = 'SET_CONSTRUCTION_UNIT',
   changeStep = 'CHANGE_STEP',
@@ -6,7 +8,10 @@ export enum ActionTypes {
   setMaterial = 'SET_MATERIAL',
   setWallsX = 'SET_WALLS_X',
   setWallsY = 'SET_WALLS_Y',
+  getApiResult = 'GET_API_RESULT',
 }
+
+export type TGetState = () => IInitialState;
 
 export type stepType =
   | 'step-one'
@@ -40,6 +45,14 @@ export interface setWallsYActionType {
   payload: number;
 }
 
+export interface getApiResultActionType {
+  type: ActionTypes.getApiResult;
+  payload: {
+    apiResultStatus: string;
+    apiResultMessage: string;
+  };
+}
+
 export interface changeStepActionType {
   type: ActionTypes.changeStep;
   payload: stepType;
@@ -56,4 +69,5 @@ export type ActionCreatorTypes =
   | setStoreysActionType
   | setMaterialActionType
   | setWallsXActionType
-  | setWallsYActionType;
+  | setWallsYActionType
+  | getApiResultActionType;
