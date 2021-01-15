@@ -11,6 +11,7 @@ import StepOnePage from './pages/StepOnePage';
 import StepTwoPage from './pages/StepTwoPage';
 import StepThreePage from './pages/StepThreePage';
 import StepFourPage from './pages/StepFourPage';
+import StepResultPage from './pages/StepResultPage';
 import { store } from './store';
 
 import './appStyle.css';
@@ -24,6 +25,7 @@ function App() {
           <Route path='/step-two' component={StepTwoPage} />
           <Route path='/step-three' component={StepThreePage} />
           <Route path='/step-four' component={StepFourPage} />
+          <Route path='/step-result' component={StepResultPage} />
           <Redirect to='/step-one' />
         </Switch>
       </Router>

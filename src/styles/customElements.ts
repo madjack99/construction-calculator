@@ -36,6 +36,7 @@ export const QuestionTitle = styled.h2`
   font-size: 18px;
   background-color: ${grey};
   color: ${blue};
+  text-align: center;
 `;
 
 export const OptionLink = styled.a`
@@ -73,4 +74,8 @@ export const NumInput = styled.input`
 export const NumInputsWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const ResultMessageDiv = styled.div`
+  padding: 10px 15px;
 `;

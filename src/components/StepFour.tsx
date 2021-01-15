@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import ErrorMessage from './ErrorMessage';
 import CancelButton from './CancelButton';
@@ -24,6 +25,7 @@ const StepFour = () => {
   const [yValue, yValueAttributes] = useNumInput(1);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleCalculate = () => {
     if (xValue < 1 || yValue < 1) {
@@ -35,6 +37,8 @@ const StepFour = () => {
     dispatch(setWallsY(yValue));
 
     dispatch(makeApiCall());
+
+    history.push('step-result');
   };
 
   return (
