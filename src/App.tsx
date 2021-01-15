@@ -10,6 +10,7 @@ import {
 import StepOnePage from './pages/StepOnePage';
 import StepTwoPage from './pages/StepTwoPage';
 import StepThreePage from './pages/StepThreePage';
+import StepFourPage from './pages/StepFourPage';
 import { store } from './store';
 
 import './appStyle.css';
@@ -21,7 +22,8 @@ function App() {
         <Switch>
           <Route path='/step-one' component={StepOnePage} />
           <Route path='/step-two' component={StepTwoPage} />
-          <Route path='/step-Three' component={StepThreePage} />
+          <Route path='/step-three' component={StepThreePage} />
+          <Route path='/step-four' component={StepFourPage} />
           <Redirect to='/step-one' />
         </Switch>
       </Router>
