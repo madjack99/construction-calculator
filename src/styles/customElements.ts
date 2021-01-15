@@ -69,3 +69,8 @@ export const NumInput = styled.input`
   width: 40%;
   margin: 20px auto;
 `;
+
+export const NumInputsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;

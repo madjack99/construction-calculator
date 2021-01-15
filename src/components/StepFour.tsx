@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import ErrorMessage from './ErrorMessage';
 import CancelButton from './CancelButton';
+import useNumInput from './customHooks/useNumInput';
 
 import {
   Wrapper,
@@ -10,18 +11,23 @@ import {
   StepNo,
   QuestionBox,
   QuestionTitle,
-  OptionLink,
   Button,
   NumInput,
+  NumInputsWrapper,
 } from '../styles/customElements';
-
-const NumInputsWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 const StepFour = () => {
   const [error, setError] = useState(false);
+
+  const [xValue, xValueAttributes] = useNumInput(1);
+  const [yValue, yValueAttributes] = useNumInput(1);
+
+  const handleCalculate = () => {
+    if (xValue < 1 || yValue < 1) {
+      setError(true);
+      return;
+    }
+  };
 
   return (
     <Wrapper>
@@ -30,15 +36,15 @@ const StepFour = () => {
       <QuestionBox>
         <QuestionTitle>Длина стен (в метрах):</QuestionTitle>
         <NumInputsWrapper>
-          <NumInput />
+          <NumInput type='number' min='1' {...xValueAttributes} />
           X
-          <NumInput />
+          <NumInput type='number' min='1' {...yValueAttributes} />
         </NumInputsWrapper>
       </QuestionBox>
       {error && <ErrorMessage>Введите размеры</ErrorMessage>}
       <div>
         <CancelButton />
-        <Button onClick={() => setError(true)}>Далее</Button>
+        <Button onClick={handleCalculate}>Рассчитать</Button>
       </div>
     </Wrapper>
   );

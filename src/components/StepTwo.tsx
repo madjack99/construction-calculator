@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import CancelButton from './CancelButton';
 import { setStoreys } from '../actions';
+import useNumInput from './customHooks/useNumInput';
 
 import {
   Wrapper,
@@ -16,16 +17,10 @@ import {
 } from '../styles/customElements';
 
 const StepTwo = () => {
-  const [storeys, setStoreysNo] = useState(1);
+  const [storeys, storeysAttributes] = useNumInput(1);
 
   const dispatch = useDispatch();
   const history = useHistory();
-
-  const handleStoreysChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let storeysNo = +e.target.value;
-    storeysNo = storeysNo < 1 ? 1 : storeysNo;
-    setStoreysNo(storeysNo);
-  };
 
   const handleStepChange = () => {
     dispatch(setStoreys(storeys));
@@ -38,12 +33,7 @@ const StepTwo = () => {
       <StepNo>Шаг 2</StepNo>
       <QuestionBox>
         <QuestionTitle>Количество этажей (число):</QuestionTitle>
-        <NumInput
-          type='number'
-          min='1'
-          value={storeys}
-          onChange={handleStoreysChange}
-        />
+        <NumInput type='number' min='1' {...storeysAttributes} />
       </QuestionBox>
       <div>
         <CancelButton />
