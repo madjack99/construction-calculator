@@ -1,6 +1,7 @@
 export enum ActionTypes {
   setConstructionUnit = 'SET_CONSTRUCTION_UNIT',
   changeStep = 'CHANGE_STEP',
+  resetState = 'RESET_STATE',
 }
 
 export type stepType =
@@ -20,6 +21,11 @@ export interface changeStepActionType {
   payload: stepType;
 }
 
+export interface resetStateActionType {
+  type: ActionTypes.resetState;
+}
+
 export type ActionCreatorTypes =
   | setConstructionUnitActionType
-  | changeStepActionType;
+  | changeStepActionType
+  | resetStateActionType;

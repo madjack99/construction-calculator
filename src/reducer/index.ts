@@ -21,6 +21,10 @@ export const rootReducer = (
         ...state,
         stepNo: action.payload,
       };
+    case ActionTypes.resetState:
+      return {
+        ...initialState,
+      };
     default:
       return state;
   }

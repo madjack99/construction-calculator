@@ -16,3 +16,7 @@ export const setConstructionUnit = (
   type: ActionTypes.setConstructionUnit,
   payload: constructionUnit,
 });
+
+export const resetState = () => ({
+  type: ActionTypes.resetState,
+});

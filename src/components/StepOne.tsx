@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { IInitialState } from '../reducer/types';
 import { setConstructionUnit, changeStep } from '../actions';
+import CancelButton from './CancelButton';
 
 import {
   Wrapper,
@@ -59,7 +60,7 @@ const StepOne = () => {
         <ul>{renderConstructionUnitsOptions()}</ul>
       </QuestionBox>
       <div>
-        <Button>Отмена</Button>
+        <CancelButton />
         <Button>Далее</Button>
       </div>
     </Wrapper>
