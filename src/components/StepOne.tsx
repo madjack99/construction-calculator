@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { IInitialState } from '../reducer/types';
 import { setConstructionUnit, changeStep } from '../actions';
 import CancelButton from './CancelButton';
 import ErrorMessage from './ErrorMessage';

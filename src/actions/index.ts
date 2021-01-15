@@ -2,6 +2,8 @@ import {
   ActionTypes,
   setConstructionUnitActionType,
   changeStepActionType,
+  setStoreysActionType,
+  resetStateActionType,
   stepType,
 } from './types';
 
@@ -17,6 +19,11 @@ export const setConstructionUnit = (
   payload: constructionUnit,
 });
 
-export const resetState = () => ({
+export const setStoreys = (storeys: number): setStoreysActionType => ({
+  type: ActionTypes.setStoreys,
+  payload: storeys,
+});
+
+export const resetState = (): resetStateActionType => ({
   type: ActionTypes.resetState,
 });

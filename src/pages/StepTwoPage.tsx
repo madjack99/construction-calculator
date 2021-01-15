@@ -1,7 +1,13 @@
 import React from 'react';
 
+import StepTwo from '../components/StepTwo';
+
 const StepTwoPage = () => {
-  return <div>step two</div>;
+  return (
+    <div>
+      <StepTwo />
+    </div>
+  );
 };
 
 export default StepTwoPage;

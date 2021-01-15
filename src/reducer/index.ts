@@ -4,6 +4,7 @@ import { IInitialState } from './types';
 const initialState: IInitialState = {
   stepNo: 'step-one',
   constructionUnit: '',
+  storeys: 1,
 };
 
 export const rootReducer = (
@@ -16,6 +17,12 @@ export const rootReducer = (
         ...state,
         constructionUnit: action.payload,
       };
+    case ActionTypes.setStoreys: {
+      return {
+        ...state,
+        storeys: action.payload,
+      };
+    }
     case ActionTypes.changeStep:
       return {
         ...state,

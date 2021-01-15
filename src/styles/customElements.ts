@@ -57,3 +57,9 @@ export const Button = styled.button`
 export const ErrorDiv = styled.div`
   color: ${red};
 `;
+
+export const NumInput = styled.input`
+  display: block;
+  width: 40%;
+  margin: 20px auto;
+`;
